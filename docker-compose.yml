@@ -19,6 +19,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: QWERTY
+    volumes:
+      - mongo_data:/data/db
 
   mongo-express:
     image: mongo-express
@@ -32,3 +34,6 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://admin:QWERTY@mongo:27017/
     depends_on:
       - mongo
+
+volumes:
+  mongo_data:
